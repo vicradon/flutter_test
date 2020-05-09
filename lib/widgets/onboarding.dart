@@ -7,7 +7,7 @@ final listPagesViewModel = [
     body:
         "Here you can write the description of the page, to explain someting...",
     image: Center(
-      child: Image.network("https://domaine.com/image.png", height: 175.0),
+      child: Image.asset("assets/images/screen1.png", height: 175.0),
     ),
   ),
   PageViewModel(
