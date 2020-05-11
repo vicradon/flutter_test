@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ft_quiz/widgets/HomePage.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
 class Walkthrougth extends StatelessWidget {
@@ -61,16 +62,28 @@ class Dots extends StatelessWidget {
   }
 }
 
-class SkipButton extends StatelessWidget {
+class SkipButton extends StatefulWidget {
   final double currentIndexPage;
   SkipButton(this.currentIndexPage);
 
   @override
-  Widget build(BuildContext context) {
-    String text = "skip";
+  SkipButtonState createState() => SkipButtonState();
+}
 
-    if (currentIndexPage == 3) {
-      text = "done";
+class SkipButtonState extends State<SkipButton> {
+  String text = "skip";
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.currentIndexPage == 2.0) {
+      setState(() {
+        text = "done";
+      });
+    }
+    else {
+      setState(() {
+        text = "skip";
+      });
     }
     return Positioned(
       top: MediaQuery.of(context).size.height * 0.92,
@@ -78,7 +91,11 @@ class SkipButton extends StatelessWidget {
       child: FlatButton(
         child: Text(text),
         onPressed: () {
-          print("skip");
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (BuildContext context) => HomePage(),
+            ),
+          );
         },
       ),
     );
