@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ft_quiz/model/question.dart';
 import 'package:ft_quiz/widgets/Categories/EssentialWidgets.dart';
 import 'package:ft_quiz/widgets/Categories/QuestionAnswer.dart';
+import 'package:provider/provider.dart';
+import 'package:ft_quiz/model/question-model.dart';
 
 class QuizPage extends StatefulWidget {
   final String name;
@@ -22,6 +24,7 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
+    // final a = Provider.of<QuestionModel>(context);
     return Scaffold(
       body: Container(
         child: Column(
@@ -34,9 +37,9 @@ class _QuizPageState extends State<QuizPage> {
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Column(
                 children: <Widget>[
-                  questionCount(),
+                  QuestionCount(),
                   QuestionAnswer(futureQuestions),
-                  questionActionButton()
+                  QuestionActionButton()
                 ],
               ),
             )

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ft_quiz/widgets/Categories/QuizCircle.dart';
 import 'package:ft_quiz/model/question.dart';
+import 'package:provider/provider.dart';
+import 'package:ft_quiz/model/question-model.dart';
 
 class Categories extends StatefulWidget {
   @override
@@ -8,18 +10,19 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  Future<List<Question>> futureQuestions;
+  // Future<List<Question>> futureQuestions;
 
-  @override
-  void initState() {
-    super.initState();
-    futureQuestions = fetchQuestions('animals');
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   futureQuestions = fetchQuestions('animals');
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // child: Center(
+    return ChangeNotifierProvider<QuestionModel>(
+      builder: (context) => QuestionModel(),
+      child: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -48,7 +51,7 @@ class _CategoriesState extends State<Categories> {
               children: <Widget>[
                 QuizCircle(
                   name: "history",
-                  textColor: Color(0XFFFFFFFF), 
+                  textColor: Color(0XFFFFFFFF),
                   backgroundColor: Color(0XFF5B73C7),
                 ),
                 QuizCircle(
@@ -60,7 +63,7 @@ class _CategoriesState extends State<Categories> {
             ),
           ],
         ),
-      // ),
+      ),
     );
   }
 }
