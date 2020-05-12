@@ -5,24 +5,28 @@ import 'package:provider/provider.dart';
 
 class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
-    final themeModel = Provider.of<ThemeModel>(context);
-    return Container(
-      margin: EdgeInsets.all(20),
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text("Light"),
-              Switch(
-                  value: themeModel.darkMode,
-                  onChanged: (val) {
-                    themeModel.toggleMode(val);
-                  }),
-              Text("Dark")
-            ],
-          )
-        ],
-      ),
-    );
+    return Center(child: Text("Settings"));
   }
+}
+
+Widget themeMode(context) {
+  final themeModel = Provider.of<ThemeModel>(context);
+  return Container(
+    margin: EdgeInsets.all(20),
+    child: Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Text("Light"),
+            Switch(
+                value: themeModel.darkMode,
+                onChanged: (val) {
+                  themeModel.toggleMode(val);
+                }),
+            Text("Dark")
+          ],
+        )
+      ],
+    ),
+  );
 }

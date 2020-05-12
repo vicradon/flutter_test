@@ -49,12 +49,3 @@ class App extends StatelessWidget {
     );
   }
 }
-
-// ThemeData theme(context) {
-//   final themeModel = Provider.of<ThemeModel>(context);
-//   return ThemeData(
-//     primarySwatch: MaterialColor(0xFFF8A700, swatch),
-//     visualDensity: VisualDensity.adaptivePlatformDensity,
-//     brightness: themeModel.brightness,
-//   );
-// }

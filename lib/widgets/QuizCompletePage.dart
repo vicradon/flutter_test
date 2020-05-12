@@ -61,6 +61,7 @@ class QuizCompletePage extends StatelessWidget {
                                   builder: (context) => HomePage(),
                                 ),
                               );
+                              Navigator.of(context).pop();
                             })
                       ],
                     ),
