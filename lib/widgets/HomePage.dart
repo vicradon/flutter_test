@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
     return  Scaffold(
         appBar: AppBar(
           title: Text(_appBarTitles[_index]),
-          // backgroundColor: Colors.white,
+          backgroundColor: Colors.white,
           elevation: 1,
           centerTitle: true,
         ),

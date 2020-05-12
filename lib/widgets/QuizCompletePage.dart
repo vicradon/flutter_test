@@ -42,12 +42,12 @@ class QuizCompletePage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        IconButton(
-                            icon: Icon(
-                              Icons.replay,
-                              size: 50,
-                            ),
-                            onPressed: () {}),
+                        // IconButton(
+                        //     icon: Icon(
+                        //       Icons.replay,
+                        //       size: 50,
+                        //     ),
+                        //     onPressed: () {}),
                         IconButton(
                             icon: Icon(
                               Icons.home,
