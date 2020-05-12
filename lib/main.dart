@@ -3,6 +3,8 @@ import 'package:ft_quiz/widgets/onboarding.dart';
 import 'package:ft_quiz/widgets/HomePage.dart';
 import 'package:ft_quiz/utils/swatch.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
+import 'package:ft_quiz/model/question-model.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,12 +27,15 @@ class App extends StatelessWidget {
   App(this.seen);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider<QuestionModel>(
+      builder: (context) => QuestionModel(),
+      child: MaterialApp(
       title: 'Flutter Demo',
       home: seen ? HomePage() : Onboarding(),
       theme: ThemeData(
         primarySwatch: MaterialColor(0xFFF8A700, swatch),
         visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       ),
     );
   }

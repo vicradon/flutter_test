@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ft_quiz/widgets/Categories/Categories.dart';
 import 'package:ft_quiz/widgets/Profile.dart';
 import 'package:ft_quiz/widgets/Settings.dart';
-import 'package:provider/provider.dart';
-import 'package:ft_quiz/model/question-model.dart';
+
 
 class HomePage extends StatefulWidget {
   @override

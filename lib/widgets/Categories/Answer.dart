@@ -1,36 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:ft_quiz/model/question-model.dart';
+import 'package:provider/provider.dart';
 
-class Answer extends StatefulWidget {
-  final String value;
+class Answer extends StatelessWidget {
   final String letterValue;
-  // bool isCorrect;
-  Answer({this.value, this.letterValue});
-  @override
-  _AnswerState createState() => _AnswerState();
-}
+  final String value;
+  final Color color;
 
-class _AnswerState extends State<Answer> {
+  Answer({this.letterValue, this.value, this.color});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-      margin: EdgeInsets.symmetric(vertical: 5),
-      decoration: BoxDecoration(
-          border: Border.all(
-            color: Color(0xFFCCCCCC),
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(10)),
-      child: GestureDetector(
-        onTap: () {
-          print("d");
-          setState(() {});
-        },
+    final model = Provider.of<QuestionModel>(context);
+
+    return GestureDetector(
+      onTap: () {
+        if (!model.hasSelected) {
+          model.checkAnswer(value);
+        }
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+        margin: EdgeInsets.symmetric(vertical: 5),
+        decoration: BoxDecoration(
+            color: color,
+            border: Border.all(
+              color: Color(0xFFCCCCCC),
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(10)),
         child: Row(
           children: <Widget>[
-            Text(widget.letterValue),
+            Text(letterValue),
             SizedBox(width: 10),
-            Text(widget.value),
+            Text(value),
           ],
         ),
       ),

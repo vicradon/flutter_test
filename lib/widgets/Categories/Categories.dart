@@ -1,89 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:ft_quiz/widgets/Categories/QuizCircle.dart';
-import 'package:ft_quiz/model/question.dart';
 import 'package:provider/provider.dart';
 import 'package:ft_quiz/model/question-model.dart';
+import 'package:ft_quiz/widgets/Categories/ReturnRowChildren.dart';
 
-class Categories extends StatefulWidget {
-  @override
-  _CategoriesState createState() => _CategoriesState();
-}
-
-class _CategoriesState extends State<Categories> {
-  // Future<List<Question>> futureQuestions;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   futureQuestions = fetchQuestions('animals');
-  // }
-
+class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<QuestionModel>(
-      builder: (context) => QuestionModel(),
-      child: Container(
-        child: Column(
+    final model = Provider.of<QuestionModel>(context);
+    final categories = model.categoryProperties;
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                QuizCircle(
-                  name: "animals",
-                  textColor: Colors.white,
-                  backgroundColor: Colors.lightBlue,
-                ),
-                QuizCircle(
-                  name: "computers",
-                  textColor: Color(0XFFFFFFFF),
-                  backgroundColor: Color(0xFFB85540),
-                ),
-                QuizCircle(
-                  name: "gen_know",
-                  textColor: Color(0XFF068EE9),
-                  backgroundColor: Color(0XFFB8E1FF),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                QuizCircle(
-                  name: "history",
-                  textColor: Color(0XFFFFFFFF),
-                  backgroundColor: Color(0XFF5B73C7),
-                ),
-                QuizCircle(
-                  name: "mythology",
-                  textColor: Color(0XFF9D03DF),
-                  backgroundColor: Color(0XFFE9C3FF),
-                )
-              ],
-            ),
-          ],
+          children: quizCircles(categories, 1, 3),
         ),
-      ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: quizCircles(categories, 4, 5),
+        ),
+      ],
     );
   }
 }
-
-/*
-FutureBuilder(
-      future: futureQuestions,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return ListView.builder(
-            itemCount: snapshot.data.length,
-            itemBuilder: (BuildContext context, i) {
-              return ListTile(title: Text(snapshot.data[i].question));
-            },
-          );
-        } else if (snapshot.hasError) {
-          return Text("${snapshot.error}");
-        } else {
-          return CircularProgressIndicator();
-        }
-      },
-    );
-*/
