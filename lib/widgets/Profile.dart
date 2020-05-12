@@ -2,6 +2,6 @@ import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
-    return Text("guijf");
+    return Center(child: Text("Profile Data"));
   }
 }

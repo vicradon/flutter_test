@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ft_quiz/model/theme_model.dart';
 import 'package:ft_quiz/widgets/onboarding.dart';
 import 'package:ft_quiz/widgets/HomePage.dart';
 import 'package:ft_quiz/utils/swatch.dart';
@@ -27,16 +28,33 @@ class App extends StatelessWidget {
   App(this.seen);
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<QuestionModel>(
-      builder: (context) => QuestionModel(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<QuestionModel>(
+          builder: (context) => QuestionModel(),
+        ),
+        ChangeNotifierProvider<ThemeModel>(
+          builder: (context) => ThemeModel(),
+        ),
+      ],
       child: MaterialApp(
-      title: 'Flutter Demo',
-      home: seen ? HomePage() : Onboarding(),
-      theme: ThemeData(
-        primarySwatch: MaterialColor(0xFFF8A700, swatch),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+        title: 'Flutter Demo',
+        home: seen ? HomePage() : Onboarding(),
+        theme: ThemeData(
+          primarySwatch: MaterialColor(0xFFF8A700, swatch),
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          brightness: Brightness.light,
+        ),
       ),
     );
   }
 }
+
+// ThemeData theme(context) {
+//   final themeModel = Provider.of<ThemeModel>(context);
+//   return ThemeData(
+//     primarySwatch: MaterialColor(0xFFF8A700, swatch),
+//     visualDensity: VisualDensity.adaptivePlatformDensity,
+//     brightness: themeModel.brightness,
+//   );
+// }

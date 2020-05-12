@@ -56,7 +56,7 @@ class QuestionCount extends StatelessWidget {
 }
 
 void endQuiz(model, context) {
-  Navigator.push(
+  Navigator.pushReplacement(
     context,
     MaterialPageRoute(
       builder: (context) => QuizCompletePage(quizName: model.quizName, score: model.score),
