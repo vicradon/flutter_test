@@ -32,7 +32,7 @@ final List<Color> colors = [
 List<Widget> dataTiles(data) {
   final List<Widget> tiles = [];
   for (int i = 0; i < data.length; i++) {
-    tiles.add(DataTile(colors[i], data[i]));
+    tiles.add(Tile(colors[i], data[i]));
   }
   return tiles;
 }

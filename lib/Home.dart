@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prescient_automation_flutter_test/IconGrid/IconGrid.dart';
-import 'package:prescient_automation_flutter_test/IconGrid/InitialIconGrid.dart';
 import 'package:prescient_automation_flutter_test/model/text_data.dart';
 
 class Home extends StatefulWidget {

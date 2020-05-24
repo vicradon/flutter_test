@@ -4,10 +4,12 @@ class Tile extends StatelessWidget {
   const Tile(this.backgroundColor, this.iconData);
 
   final Color backgroundColor;
-  final IconData iconData;
+  final dynamic iconData;
 
   @override
   Widget build(BuildContext context) {
+    bool isIcon = iconData is IconData ? true : false;
+
     return Card(
       color: backgroundColor,
       child: InkWell(
@@ -15,33 +17,12 @@ class Tile extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(4.0),
-            child: Icon(
-              iconData,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class DataTile extends StatelessWidget {
-  const DataTile(this.backgroundColor, this.text);
-
-  final Color backgroundColor;
-  final Text text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: backgroundColor,
-      child: InkWell(
-        onTap: () {},
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: this.text,
+            child: isIcon
+                ? Icon(
+                    iconData,
+                    color: Colors.white,
+                  )
+                : this.iconData,
           ),
         ),
       ),
