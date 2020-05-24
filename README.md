@@ -1,7 +1,6 @@
-# ft_quiz
+# flutter_test
+Prescient Automation Recruitment Test
 
-A quiz app made with Flutter
- 
 # Screenshots
 
 <img src = "assets/screenshots/sh1.png" width = 200px>
