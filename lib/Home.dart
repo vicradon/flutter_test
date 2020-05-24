@@ -25,32 +25,14 @@ class HomeState extends State<Home> {
         future: futureText,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return IconGrid(data: snapshot.data);
+            return IconGrid(data: snapshot.data, containsData: true);
           } else if (snapshot.hasError) {
             return Center(child: Text("${snapshot.error}"));
           } else {
-            return InitialIconGrid();
+            return IconGrid(containsData: false);
           }
         },
       ),
     );
   }
 }
-
-/*
-funcThatReturnsFuture().then((result) {
-  print(result);
-  setState(() {
-    someVal = result;
-  })
-})
-or
-
-Future funcThatMakesAsyncCall() async {
-  var result = await funcThatReturnsFuture();
-  print(result);  
-  setState(() {
-    someVal = result;
-  })
-}
-*/
