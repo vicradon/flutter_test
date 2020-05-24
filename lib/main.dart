@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ft_quiz/widgets/onboarding.dart';
+import 'package:prescient_automation_flutter_test/Home.dart';
 
-void main() {
+void main() async {
   runApp(App());
 }
 
@@ -9,21 +9,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomePage(),
+      title: 'Flutter Test',
+      home: Home(),
     );
-  }
-}
-
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // return Text("hello");
-    return Onboarding();
   }
 }
