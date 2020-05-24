@@ -16,21 +16,36 @@ List<StaggeredTile> staggeredTiles = <StaggeredTile>[
   StaggeredTile.count(4, 1),
 ];
 
-// tiles(data){
-//   if (data){
+final List<Color> colors = [
+  Colors.green,
+  Colors.brown,
+  Colors.amber,
+  Colors.purple,
+  Colors.orange,
+  Colors.lightBlue,
+  Colors.deepOrange,
+  Colors.blueGrey,
+  Colors.pink,
+  Colors.blue,
+];
 
-//   }
-// }
+List<Widget> dataTiles(data) {
+  final List<Widget> tiles = [];
+  for (int i = 0; i < data.length; i++) {
+    tiles.add(DataTile(colors[i], data[i]));
+  }
+  return tiles;
+}
 
 List<Widget> tiles = <Widget>[
-  Tile(Colors.green, Icons.widgets),
-  Tile(Colors.brown, Icons.airline_seat_flat),
-  Tile(Colors.amber, Icons.location_on),
-  Tile(Colors.purple, Icons.battery_charging_full),
-  Tile(Colors.orange, Icons.camera),
-  Tile(Colors.lightBlue, Icons.wifi),
-  Tile(Colors.deepOrange, Icons.mic),
-  Tile(Colors.blueGrey, Icons.security),
-  Tile(Colors.pink, Icons.alarm),
-  Tile(Colors.blue, Icons.radio),
+  Tile(colors[0], Icons.widgets),
+  Tile(colors[1], Icons.airline_seat_flat),
+  Tile(colors[2], Icons.location_on),
+  Tile(colors[3], Icons.battery_charging_full),
+  Tile(colors[4], Icons.camera),
+  Tile(colors[5], Icons.wifi),
+  Tile(colors[6], Icons.mic),
+  Tile(colors[7], Icons.security),
+  Tile(colors[8], Icons.alarm),
+  Tile(colors[9], Icons.radio),
 ];

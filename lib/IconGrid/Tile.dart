@@ -25,3 +25,26 @@ class Tile extends StatelessWidget {
     );
   }
 }
+
+class DataTile extends StatelessWidget {
+  const DataTile(this.backgroundColor, this.text);
+
+  final Color backgroundColor;
+  final Text text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: backgroundColor,
+      child: InkWell(
+        onTap: () {},
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: this.text,
+          ),
+        ),
+      ),
+    );
+  }
+}

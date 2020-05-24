@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prescient_automation_flutter_test/IconGrid/IconGrid.dart';
+import 'package:prescient_automation_flutter_test/IconGrid/InitialIconGrid.dart';
 import 'package:prescient_automation_flutter_test/model/text_data.dart';
 
 class Home extends StatefulWidget {
@@ -8,48 +9,30 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  // Future<List<Text>> futureText;
+  Future<List<Text>> futureText;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   futureText = fetchJSONData().then((value) {
-  //     print(value);
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+    futureText = fetchJSONData();
+  }
 
   @override
   Widget build(BuildContext context) {
-    fetchJSONData().then((value) {
-      print(value);
-    });
-
     return Scaffold(
       appBar: AppBar(title: Text('Flutter Test'), centerTitle: true),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            fetchJSONData().then((value) {
-              print(value);
-            });
-          },
-          child: Text("9"),
-        ),
+      body: FutureBuilder<List<Text>>(
+        future: futureText,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return IconGrid(data: snapshot.data);
+          } else if (snapshot.hasError) {
+            return Center(child: Text("${snapshot.error}"));
+          } else {
+            return InitialIconGrid();
+          }
+        },
       ),
-      // body: FutureBuilder<List<Text>>(
-      //   future: futureText,
-      //   builder: (context, snapshot) {
-      //     if (snapshot.hasData) {
-      //       return Center(child: Text("${snapshot.data}"));
-      //       // IconGrid(data: snapshot.data);
-      //     } else if (snapshot.hasError) {
-      //       return Center(child: Text("${snapshot.error}"));
-      //     } else {
-      //       return Center(child: Text("Loading"));
-      //       // IconGrid();
-      //     }
-      //   },
-      // ),
     );
   }
 }
