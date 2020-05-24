@@ -24,11 +24,11 @@ class HomeState extends State<Home> {
         future: futureText,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return IconGrid(data: snapshot.data, containsData: true);
+            return IconGrid(data: snapshot.data);
           } else if (snapshot.hasError) {
             return Center(child: Text("${snapshot.error}"));
           } else {
-            return IconGrid(containsData: false);
+            return IconGrid();
           }
         },
       ),
